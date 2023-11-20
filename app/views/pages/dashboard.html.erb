@@ -1,0 +1,7 @@
+<h1>Hello, <%= @user.first_name %> <%= @user.last_name %> !</h1>
+<h2>Here are all your pets :</h2>
+<% @user.pets.each do |pet| %>
+  <%= pet %>
+<% end %>
+<%= link_to "Add a pet",  new_pet_path(@user)  %>
+<%# Voir booking %>
