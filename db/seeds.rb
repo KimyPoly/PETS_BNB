@@ -7,3 +7,42 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+require "faker"
+
+User.destroy_all
+
+User.create!(
+  first_name: "Larry",
+  last_name: "Louiso",
+  email: "louiso@lewagon.fr",
+  password: "123456"
+ )
+
+ User.create!(
+  first_name: "Leveque",
+  last_name: "Louis",
+  email: "louis@lewagon.fr",
+  password: "123456"
+  )
+
+ User.create!(
+  first_name: "Lice",
+  last_name: "Louisu",
+  email: "louisu@lewagon.fr",
+  password: "123456"
+  )
+
+ User.create!(
+  first_name: "Lac",
+  last_name: "Louisa",
+  email: "louisa@lewagon.fr",
+  password: "123456"
+  )
+
+ User.create!(
+  first_name: "Luc",
+  last_name: "Louise",
+  email: "luc@lewagon.fr",
+  password: "123456"
+  )
