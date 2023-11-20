@@ -1,0 +1,6 @@
+<h1>Ajouter un commentaire</h1>
+
+<%= simple_form_for @review do |f| %>
+    <%= f.input :review, placeholder: 'Comentaire' %>
+    <%= f.submit class: 'btn btn-flat' %>
+<% end %>

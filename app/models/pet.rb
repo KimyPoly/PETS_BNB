@@ -6,5 +6,6 @@ class Pet < ApplicationRecord
   validates :age, presence: true
   validates :species, presence: true
   validates :description, presence: true
+  validates :photo_url, presence: true
   validates :habitat, inclusion: { in: ["Jungle", "Forêt", "Desert", "Ocean", "Savane"] }
 end
