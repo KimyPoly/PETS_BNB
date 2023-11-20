@@ -1,0 +1,9 @@
+<%= simple_form_for(@pet) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :age %>
+  <%= f.input :race%>
+  <%= f.input :species %>
+  <%= f.input :description%>
+  <%= f.input :habitat , collection: ["Jungle", "Forêt", "Desert", "Ocean", "Savane"]  %>
+  <%= f.submit %>
+<% end %>
