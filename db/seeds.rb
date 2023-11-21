@@ -10,7 +10,6 @@
 
 require "faker"
 
-User.destroy_all
 
 User.create!(
   first_name: "Larry",
@@ -46,3 +45,20 @@ User.create!(
   email: "luc@lewagon.fr",
   password: "123456"
   )
+
+  puts 'Creating 10 fake profil...'
+
+  Pet.destroy_all
+20.times do
+  pets = Pet.new(
+    user_id: rand(6..10),
+    name: Faker::Dessert.topping,
+    species: Faker::Creature::Animal.name,
+    age: rand(1..12),
+    habitat: ['Forêt', 'Desert', 'Jungle', 'Savane', 'Ocean'].sample,
+    description: Faker::Movie.quote,
+    photo_url: 'https://picsum.photos/id/237/200/200'
+  )
+  pets.save!
+end
+puts 'Finished!'
