@@ -13,3 +13,4 @@
 
 <%= button_to 'Back to the List', pets_path, method: 'get' %>
 <%= link_to "New booking", new_pet_booking_path(@pet), class: "btn btn-primary", id: "c" %>
+<%= link_to 'Remove', pet_path(@pet), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } %>
