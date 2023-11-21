@@ -2,4 +2,7 @@
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.submit %>
+  <%= f.input :opening_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
 <% end %>
