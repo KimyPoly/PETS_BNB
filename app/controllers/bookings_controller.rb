@@ -6,6 +6,8 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @user = current_user
+    @pet = Pet.find(params[:pet_id])
     @booking = Booking.new
   end
 
@@ -13,7 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
 
     @booking.save
-    redirect_to list_path(@list)
+    redirect_to dashboard_path
   end
 
   def destroy
@@ -24,7 +26,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :user_id, :pet_id)
   end
 
   def set_booking

@@ -1,8 +1,5 @@
-<%= simple_form_for(@booking) do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+<%= simple_form_for [@pet, @booking] do |f| %>
+  <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :end_date  as: :string, input_html: { data: { controller: "datepicker" } } %>
   <%= f.submit %>
-  <%= f.input :opening_date,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
 <% end %>

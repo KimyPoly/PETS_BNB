@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root to: "pets#index"
     resources :pets do
-      resources :booking, except: %i[edit update] do
+      resources :bookings, except: %i[edit update] do
         resources :reviews, only: %i[new create show]
       end
     end
