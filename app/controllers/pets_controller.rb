@@ -1,9 +1,11 @@
 class PetsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_params, only: [:show, :edit, :update, :destroy]
 
   def index
     @pets = Pet.all
+    @pets = @pets.where(race: params[:race]) if params[:race].present?
+    @pets = @pets.where(habitat: params[:habitat]) if params[:habitat].present?
   end
 
   def new

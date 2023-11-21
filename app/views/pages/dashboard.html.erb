@@ -3,6 +3,7 @@
   <h2>Here are all your pets :</h2>
   <% @user.pets.each do |pet| %>
     <%= link_to pet.name, pet_path(pet) %>
+    <%= link_to 'Remove', pet_path(pet), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } %>
   <% end %>
 <% end %>
 <h2>Here are your bookings : </h2>
@@ -12,12 +13,22 @@
     The booking's dates are : <%= booking.start_date %>||<%= booking.end_date %>
     The booking's status is : <%= booking.status %>
   </p>
-  <% if booking.status == "pending" %>
-    <%= button_to 'Accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success' %>
-    <%= button_to 'Decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger' %>
-  <% end %>
   <%= link_to "Add a review", new_booking_review_path(booking) %>
+<% end %>
+<h2>Here are the bookings on your pets : </h2>
+<% @pets.each do |pet| %>
+  <%= pet.name %>
+  <% pet.bookings.each do |booking| %>
+    <p>
+      <%= booking.start_date %>
+      <%= booking.end_date %>
+      <%= booking.status %>
+    </p>
+    <% if booking.status == "pending" %>
+      <%= button_to 'Accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success' %>
+      <%= button_to 'Decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger' %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <%= link_to "Add a pet",  new_pet_path(@user)  %>
-
