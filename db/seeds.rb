@@ -9,7 +9,10 @@
 #   end
 
 require "faker"
-
+Review.delete_all
+Booking.delete_all
+Pet.delete_all
+User.delete_all
 
 User.create!(
   first_name: "Larry",
@@ -48,7 +51,6 @@ User.create!(
 
   puts 'Creating 10 fake profil...'
 
-  Pet.destroy_all
 20.times do
   pets = Pet.new(
     user_id: rand(6..10),
