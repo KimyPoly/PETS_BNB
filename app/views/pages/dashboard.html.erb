@@ -2,8 +2,22 @@
 <% if @user.pets != [] %>
   <h2>Here are all your pets :</h2>
   <% @user.pets.each do |pet| %>
-    <%= pet %>
+    <%= link_to pet.name, pet_path(pet) %>
   <% end %>
 <% end %>
+<h2>Here are your bookings : </h2>
+<% @bookings.each do |booking| %>
+  <p>
+    You have a booking on : <%= booking.pet.name  %>
+    The booking's dates are : <%= booking.start_date %>||<%= booking.end_date %>
+    The booking's status is : <%= booking.status %>
+  </p>
+  <% if booking.status == "pending" %>
+    <%= button_to 'Accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success' %>
+    <%= button_to 'Decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger' %>
+  <% end %>
+  <%= link_to "Add a review", new_booking_review_path(booking) %>
+<% end %>
+
 <%= link_to "Add a pet",  new_pet_path(@user)  %>
-<%# Voir booking %>
+

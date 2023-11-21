@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:destroy]
+  before_action :set_booking, only: [:accept, :decline, :destroy]
 
   def index
     @bookings = Booking.all
@@ -19,6 +19,20 @@ class BookingsController < ApplicationController
     @booking.pet = @pet
     @booking.save
     redirect_to dashboard_path
+  end
+
+  def accept
+    @booking.status = "Accepted"
+    if @booking.save
+      redirect_to dashboard_path
+    end
+  end
+
+  def decline
+    @booking.status = "Declined"
+    if @booking.save
+      redirect_to dashboard_path
+    end
   end
 
   def destroy

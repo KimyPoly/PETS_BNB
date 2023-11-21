@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
     resources :bookings , only:[] do
       resources :reviews, only: %i[new create show]
+      member do
+        patch :accept
+        patch :decline
+      end
     end
   # Defines the root path route ("/")
   # root "posts#index"
