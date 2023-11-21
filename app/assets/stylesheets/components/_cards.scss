@@ -10,6 +10,12 @@
   color: white;
   text-decoration: none;
 }
-//  .card{
-//   border: none;
-//  }
+ .card{
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+ }
+ .card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
