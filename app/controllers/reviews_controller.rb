@@ -3,8 +3,8 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @user = current_user
-    @pet = Pet.find(params[:pet_id])
-    @booking = Booking.find_by(pet_id: @pet.id, user_id: current_user.id)
+    @booking = Booking.find(params[:booking_id])
+    @pet = @booking.pet_id
   end
 
   # def show
@@ -14,11 +14,12 @@ class ReviewsController < ApplicationController
   # end
 
   def create
-    @review = Review.new(@review_params)
-    @review.pet = @pet
-
+    # @pet = Pet.find(params[:pet_id])
+    @booking = Booking.find(params[:booking_id])
+    @review = Review.new(review_params)
+    @review.booking = @booking
     if @review.save
-      redirect_to pet_path(@pet)
+      redirect_to pet_path(@booking.pet)
     else
       render :new, status: :unprocessable_entity
     end
