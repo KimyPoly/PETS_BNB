@@ -9,11 +9,12 @@ Rails.application.routes.draw do
 
   root to: "pets#index"
     resources :pets do
-      resources :bookings, except: %i[edit update] do
-        resources :reviews, only: %i[new create show]
-      end
+      resources :bookings, except: %i[edit update]
     end
 
+    resources :bookings , only:[] do
+      resources :reviews, only: %i[new create show]
+    end
   # Defines the root path route ("/")
   # root "posts#index"
 end

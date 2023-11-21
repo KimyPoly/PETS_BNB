@@ -25,7 +25,6 @@ class PetsController < ApplicationController
 
   def show
     @review = Review.new
-    
   end
 
   def update

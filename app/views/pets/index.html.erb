@@ -1,15 +1,14 @@
 
 <div class="container">
-  <div class="d-flex justify-content-center p-3"></div>
+  <div class="d-flex justify-content-center p-3">
     <h1><strong>Pets List</strong></h1>
 
       <div class="cards" style="width: 150px, height:150px">
         <% @pets.each do |pet| %>
           <div class="card-category" style="background-image: url(pet.photo_url)">
-            <%= link_to pet.name, root_path(pet)%>
+            <%= link_to pet.name, pet_path(pet)%>
           </div>
           <% end %>
       </div>
   </div>
 </div>
-

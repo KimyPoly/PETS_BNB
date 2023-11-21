@@ -10,6 +10,6 @@ export default class extends Controller {
   }
 
   pop() {
-    this.popElementTarget.classList.review_pop("d-none");
+    this.popElementTarget.classList.toggle("d-none");
   }
 }

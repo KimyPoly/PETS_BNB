@@ -13,7 +13,10 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-
+    @user = current_user
+    @pet = Pet.find(params[:pet_id])
+    @booking.user = @user
+    @booking.pet = @pet
     @booking.save
     redirect_to dashboard_path
   end
