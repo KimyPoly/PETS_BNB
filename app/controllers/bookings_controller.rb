@@ -35,16 +35,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def change_status
-  #   if 'btn accepted clicked'
-  #     @booking.status == "accepted"
-  #   elsif 'btn refused clicked'
-  #     @booking.status == "declined"
-  #   else
-  #     puts "Location is still pending"
-  #   end
-  # end
-
   def destroy
     @booking.destroy
     redirect_to booking_path(@booking)
