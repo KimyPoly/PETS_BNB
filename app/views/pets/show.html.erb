@@ -5,17 +5,13 @@
 <h4><%=@pet.age%></h4>
 <p><%=@pet.description%></p>
 
-<div data-controller="review-pop" class="mt-5">
-  <button data-action="click->review-pop#pop" class="btn btn-primary">Add a review</button>
-  <div data-review-pop-target="popElement" class="d-none">
   <%@pet.bookings.each do|booking| %>
     <%= simple_form_for [booking, @review] do |f| %>
       <%= f.input :description, placeholder: 'Commentaire' %>
       <%= f.submit class: 'btn btn-flat' %>
     <% end %>
   <% end %>
-  </div>
-</div>
 
 <%= button_to 'Back to the List', pets_path, method: 'get' %>
 <%= link_to "New booking", new_pet_booking_path(@pet), class: "btn btn-primary", id: "c" %>
+<%= link_to 'Remove', pet_path(@pet), method: :delete, data: { turbo_confirm: 'Are you sure?' } %>
