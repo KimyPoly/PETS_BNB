@@ -3,6 +3,7 @@
   <h2>Here are all your pets :</h2>
   <% @user.pets.each do |pet| %>
     <%= link_to pet.name, pet_path(pet) %>
+    <%= link_to 'Remove', pet_path(pet), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } %>
   <% end %>
 <% end %>
 <h2>Here are your bookings : </h2>
@@ -20,4 +21,3 @@
 <% end %>
 
 <%= link_to "Add a pet",  new_pet_path(@user)  %>
-
