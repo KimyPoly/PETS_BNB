@@ -5,5 +5,16 @@
 <h4><%=@pet.age%></h4>
 <p><%=@pet.description%></p>
 
+<div data-controller="review-pop" class="mt-5">
+  <button data-action="click->review-pop#pop" class="btn btn-primary">Add a review</button>
+  <div data-toggle-target="popElement" class="d-none">
+   <%= simple_form_for @review do |f| %>
+    <%= f.input :review, placeholder: 'Commentaire' %>
+    <%= f.submit class: 'btn btn-flat' %>
+   <% end %>
+  </div>
+</div>
+
 <%= button_to 'Back to the List', pets_path, method: 'get' %>
 <%= link_to "New booking", new_pet_booking_path(@pet), class: "btn btn-primary", id: "c" %>
+
