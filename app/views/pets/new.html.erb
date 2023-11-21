@@ -4,7 +4,7 @@
   <%= f.input :species %>
   <%= f.input :race%>
   <%= f.input :description%>
-  <%= f.input :photo_url, as: :file %>
+  <%= f.input :photo_url, as: :url %>
   <%= f.input :habitat, collection: ["Jungle", "Forêt", "Desert", "Ocean", "Savane"] %>
   <%= f.submit %>
 <% end %>
