@@ -5,12 +5,11 @@
 <h4><%=@pet.age%></h4>
 <p><%=@pet.description%></p>
 
-  <%@pet.bookings.each do|booking| %>
-    <%= simple_form_for [booking, @review] do |f| %>
-      <%= f.input :description, placeholder: 'Commentaire' %>
-      <%= f.submit class: 'btn btn-flat' %>
-    <% end %>
+<ul>
+  <% @pet.reviews.each do |review| %>
+    <li><%= review.description %></li>
   <% end %>
+</ul>
 
 <%= button_to 'Back to the List', pets_path, method: 'get' %>
 <%= link_to "New booking", new_pet_booking_path(@pet), class: "btn btn-primary", id: "c" %>
