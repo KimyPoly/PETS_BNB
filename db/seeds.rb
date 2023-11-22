@@ -50,8 +50,27 @@ User.create!(
   )
 
   puts 'Creating 10 fake profil...'
-  
+
   existing_user_ids = User.pluck(:id)
+
+  locations = [
+    'Eiffel Tower, Paris, France',
+    'Statue of Liberty, New York, USA',
+    'Taj Mahal, Agra, India',
+    'Great Wall of China, Beijing, China',
+    'Sydney Opera House, Sydney, Australia',
+    'Machu Picchu, Cusco, Peru',
+    'Colosseum, Rome, Italy',
+    'Christ the Redeemer, Rio de Janeiro, Brazil',
+    'Pyramids of Giza, Cairo, Egypt',
+    'Tokyo Tower, Tokyo, Japan',
+    'Acropolis of Athens, Athens, Greece',
+    'Burj Khalifa, Dubai, UAE',
+    'CN Tower, Toronto, Canada',
+    'Sagrada Familia, Barcelona, Spain',
+    'Golden Gate Bridge, San Francisco, USA',
+    'Grand Canyon, Arizona, USA'
+  ]
 
 20.times do
   pets = Pet.new(
@@ -60,7 +79,7 @@ User.create!(
     species: Faker::Creature::Animal.name,
     age: rand(1..12),
     habitat: ['Forêt', 'Desert', 'Jungle', 'Savane', 'Ocean'].sample,
-    address: Faker::Address.full_address,
+    address: locations.sample,
     description: Faker::Movie.quote,
     photo_url: 'https://picsum.photos/id/237/200/200'
   )
