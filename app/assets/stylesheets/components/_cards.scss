@@ -10,32 +10,32 @@
   color: white;
   text-decoration: none;
 }
- .card{
+.card{
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   width: 18rem;
   margin-bottom: 20px;
  }
- .card-img-top {
+
+.card-img-top {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
 .card-product {
+  color: white;
   overflow: hidden;
   height: 400px;
+  width: 1000px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin-left: 10%;
 
 }
-.card-product h1 {
-    font-size: 80px;
-    text-align: center;
 
-}
 
 .card-product img {
   height: 100%;
@@ -56,9 +56,15 @@
   margin-bottom: 0;
   margin-top: 8px;
 }
+.card-product h1 {
+
+}
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding: 0px;
+  margin: 200;
+  align-items: center;
+
 }
 
 
@@ -77,4 +83,18 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.card-img-container {
+  height: 200px; /* Ajustez cette valeur selon la taille souhaitée */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-img-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
 }

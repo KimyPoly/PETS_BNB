@@ -1,12 +1,20 @@
+<%= render "shared/banner" %>
 <div class="container">
   <div class="row">
     <div class="col-12 text-center">
+
+
       <h1 class="mb-5">Pets</h1>
+
+      <h1 class="mb-5">Discover all our pets </h1>
+
     </div>
     <% @pets.each do |pet| %>
       <div class="col-lg-3 col-md-4 col-sm-6 col-12">
         <div class="card">
-          <img src="<%= pet.photo_url %>" class="card-img-top" alt="Pet Image">
+          <div class="card-img-container">
+            <img src="<%= pet.photo_url %>" class="card-img-top" alt="Pet Image">
+          </div>
           <div class="card-body">
             <h5 class="card-title"><%= pet.name %></h5>
             <p class="card-text text-truncate"><%= pet.description %></p>
