@@ -11,13 +11,16 @@
     </div>
   </div>
 
-
- <ul>
+  <% if @pet.reviews.present? %>
+    <h2>Reviews</h2>
+    <p><i class="fa-solid fa-star"></i> <strong><%= @average_rating %></strong></p>
     <% @pet.reviews.each do |review| %>
-      <li><%= review.description %></li>
+      <p><i class="fa-solid fa-wand-sparkles"></i> <%=review.rating %>
+      <p><%= review.description %></p>
     <% end %>
-  </ul>
-
+  <% else%>
+    <p>pas de reviews</p>
+  <% end %>
 
 
 
@@ -36,3 +39,4 @@
       <i class="fa-solid fa-rotate-left"></i>
       <%= button_to 'Back to the List', pets_path, class: "btn btn-ghost mb-2", method: 'get' %>
     </div>
+</div>

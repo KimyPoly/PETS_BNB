@@ -28,6 +28,7 @@ class PetsController < ApplicationController
   def show
     @review = Review.new
     @booking = Booking.new
+    @average_rating = calculate_average_rating(@pet)
   end
 
   def update
@@ -49,4 +50,16 @@ class PetsController < ApplicationController
   def pet_params
     params.require(:pet).permit(:name, :race, :habitat, :age, :species, :description, :photo_url)
   end
+
+  def calculate_average_rating(pet)
+    if pet.reviews.present?
+      total_ratings = pet.reviews.sum(:rating)
+      total_reviews = pet.reviews.count
+      average_rating = total_ratings.to_f / total_reviews
+      return average_rating.round(1)
+    else
+      return 0
+    end
+  end
 end
+
