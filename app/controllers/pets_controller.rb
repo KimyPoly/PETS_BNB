@@ -6,6 +6,13 @@ class PetsController < ApplicationController
     @pets = Pet.all
     @pets = @pets.where(race: params[:race]) if params[:race].present?
     @pets = @pets.where(habitat: params[:habitat]) if params[:habitat].present?
+
+    @markers = @pets.geocoded.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude
+      }
+    end
   end
 
   def new
