@@ -25,13 +25,13 @@
 <h2 class="mt-4" style="color: #a98467;">Here are your bookings :</h2>
 <div class="row">
   <% @bookings.each do |booking| %>
-    <div class="card mb-3" style="width: 18rem;">
+    <div class="card mb-3 me-3" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">You have a booking on: <%= booking.pet.name %></h5>
 
         <p style="color: #a98467;">The booking's dates are: <%= booking.start_date %> || <%= booking.end_date %></p>
         <p style="color: #a98467;">The booking's status is: <%= booking.status %></p>
-      
+
 
         <p>The booking's dates are: <%= booking.start_date %> || <%= booking.end_date %></p>
         <p>The booking's status is: <%= booking.status %></p>
