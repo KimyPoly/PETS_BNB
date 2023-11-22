@@ -164,8 +164,8 @@ Pet.create!(
   species: 'Dog',
   age: rand(1..12),
   habitat: 'Forêt',
-  address: Faker::Address.full_address,
-  description: "Mangaf, Koweit",
+  address: "Mangaf, Koweit",
+  description: "Black",
   photo_url: 'https://picsum.photos/id/237/200/200'
 )
 
@@ -305,7 +305,7 @@ Pet.create!(
 
 Pet.create!(
   user_id: existing_user_ids.sample,
-  name: 'Baptsite',
+  name: 'Baptiste',
   species: "Python",
   age: 32,
   habitat: 'Jungle',

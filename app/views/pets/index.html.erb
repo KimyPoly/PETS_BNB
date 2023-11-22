@@ -4,7 +4,11 @@
     <div class="col-12 text-center">
 
 
-      <h1 class="mb-5">Discover all our pets </h1>
+
+     
+
+      <h1 class="mb-5 text-color"><strong>Discover all our pets </strong></h1>
+
 
     </div>
     <% @pets.each do |pet| %>
@@ -16,7 +20,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= pet.name %></h5>
             <p class="card-text text-truncate"><%= pet.description %></p>
-            <button class="btn btn-primary"><%= link_to "Book", pet_path(pet), id: "color" %></button>
+            <button class="btn custom-btn"><%= link_to "Book", pet_path(pet), id: "color" %></button>
           </div>
         </div>
       </div>
