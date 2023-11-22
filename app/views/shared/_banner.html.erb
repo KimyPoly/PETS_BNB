@@ -1,0 +1,29 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://th.bing.com/th/id/OIG.jeFCdOBGs6wvehtkjom5?pid=ImgGn);">
+  <div class="container px-4">
+    <h1>Choisissez l'animal de vos rêves !</h1>
+    <br>
+    <div class="filtre d-flex align-items-start", style="color: white;">
+    <%= form_tag pets_path, method: :get do %>
+    <label for="race">Race:</label>
+    <% Pet.distinct.pluck(:race).each do |race| %>
+      <label>
+        <%= check_box_tag 'race[]', race %>
+        <%= race %>
+      </label>
+    <% end %>
+
+    <label for="habitat">Habitat:</label>
+    <% Pet.distinct.pluck(:habitat).each do |habitat| %>
+      <label>
+        <%= check_box_tag 'habitat[]', habitat %>
+        <%= habitat %>
+      </label>
+    <% end %>
+    <br>
+    <br>
+    <%= submit_tag "Search", class: "btn btn-flat" %>
+   <% end %>
+  </div>
+
+  </div>
+</div>
