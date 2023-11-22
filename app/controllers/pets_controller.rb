@@ -6,6 +6,15 @@ class PetsController < ApplicationController
     @pets = Pet.all
     @pets = @pets.where(race: params[:race]) if params[:race].present?
     @pets = @pets.where(habitat: params[:habitat]) if params[:habitat].present?
+
+    @markers = @pets.geocoded.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { pet: pet }),
+        marker_html: render_to_string(partial: "marker", locals: { pet: pet })
+      }
+    end
   end
 
   def new
@@ -62,4 +71,3 @@ class PetsController < ApplicationController
     end
   end
 end
-
