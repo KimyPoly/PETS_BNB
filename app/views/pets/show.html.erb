@@ -19,16 +19,21 @@
       <p><%= review.description %></p>
     <% end %>
   <% else%>
-    <p>pas de reviews</p>
+    <p></p>
   <% end %>
 
 
 
   <%= simple_form_for [@pet, @booking] do |f| %>
-    <div class="d-flex align-item-center ">
-      <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" }, class: "d-none" } %>
+    <div class="d-flex mb-3">
+     <div class="p-2"> <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" }, class: "d-none" } %></div>
+     <div class="p-2"> <%= f.input :end_date , as: :string, input_html: { data: { controller: "datepicker" }, class: "d-none"  } %></div>
 
-      <%= f.input :end_date , as: :string, input_html: { data: { controller: "datepicker" }, class: "d-none"  } %>
+      <div class="ms-auto p-2" style="width: 40%;"
+       data-controller="map"
+       data-map-markers-value="<%= @markers.to_json %>"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
     <i class="fa-solid fa-plus"></i>
     <%= f.submit class: "btn btn-ghost" %>
@@ -41,6 +46,6 @@
       <%= button_to 'Back to the List', pets_path, class: "btn btn-ghost mb-2", method: 'get' %>
 
   </div>
-   </div>
+
 
 </div>

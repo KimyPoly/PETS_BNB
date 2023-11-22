@@ -38,6 +38,15 @@ class PetsController < ApplicationController
     @review = Review.new
     @booking = Booking.new
     @average_rating = calculate_average_rating(@pet)
+
+    @marker =
+      {
+        lat: @pet.latitude,
+        lng: @pet.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { pet: @pet }),
+        marker_html: render_to_string(partial: "marker", locals: { pet: @pet })
+      }
+
   end
 
   def update

@@ -4,8 +4,6 @@
     <div class="col-12 text-center">
 
 
-      <h1 class="mb-5">Pets</h1>
-
       <h1 class="mb-5">Discover all our pets </h1>
 
     </div>
@@ -26,27 +24,6 @@
   </div>
 </div>
 
-<div class="filtre d-flex align-items-start">
-  <%= form_tag pets_path, method: :get do %>
-    <label for="race">Race:</label>
-    <% Pet.distinct.pluck(:race).each do |race| %>
-      <label>
-        <%= check_box_tag 'race[]', race %>
-        <%= race %>
-      </label>
-    <% end %>
-
-    <label for="habitat">Habitat:</label>
-    <% Pet.distinct.pluck(:habitat).each do |habitat| %>
-      <label>
-        <%= check_box_tag 'habitat[]', habitat %>
-        <%= habitat %>
-      </label>
-    <% end %>
-
-    <%= submit_tag "Search" %>
-  <% end %>
-</div>
 
 <div style="width: 100%; height: 600px;"
   data-controller="map"
