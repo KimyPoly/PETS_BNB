@@ -54,10 +54,11 @@ User.create!(
 20.times do
   pets = Pet.new(
     user_id: rand(6..10),
-    name: Faker::Dessert.topping,
+    name: Faker::Creature::Dog.name,
     species: Faker::Creature::Animal.name,
     age: rand(1..12),
     habitat: ['Forêt', 'Desert', 'Jungle', 'Savane', 'Ocean'].sample,
+    address: Faker::Address.full_address,
     description: Faker::Movie.quote,
     photo_url: 'https://picsum.photos/id/237/200/200'
   )
