@@ -50,10 +50,12 @@ User.create!(
   )
 
   puts 'Creating 10 fake profil...'
+  
+  existing_user_ids = User.pluck(:id)
 
 20.times do
   pets = Pet.new(
-    user_id: rand(6..10),
+    user_id: existing_user_ids.sample,
     name: Faker::Creature::Dog.name,
     species: Faker::Creature::Animal.name,
     age: rand(1..12),
