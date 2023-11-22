@@ -3,19 +3,51 @@
   <div class="row">
     <div class="col-12 text-center">
 
+
       <h1 class="mb-5">Pets</h1>
+
+      <h1 class="mb-5">Discover all our pets </h1>
+
     </div>
     <% @pets.each do |pet| %>
       <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-        <div class="card" style="width: 18rem;">
-          <img src="<%=pet.photo_url%>" class="card-img-top" alt="...">
+        <div class="card">
+          <img src="<%= pet.photo_url %>" class="card-img-top" alt="Pet Image">
           <div class="card-body">
             <h5 class="card-title"><%= pet.name %></h5>
-            <p class="card-text"><%= pet.description %></p>
-            <button class="btn btn-primary"><%= link_to "book", pet_path(pet), id: "color"%></button>
+            <p class="card-text text-truncate"><%= pet.description %></p>
+            <button class="btn btn-primary"><%= link_to "Book", pet_path(pet), id: "color" %></button>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+</div>
+
+<div class="filtre d-flex align-items-start">
+  <%= form_tag pets_path, method: :get do %>
+    <label for="race">Race:</label>
+    <% Pet.distinct.pluck(:race).each do |race| %>
+      <label>
+        <%= check_box_tag 'race[]', race %>
+        <%= race %>
+      </label>
+    <% end %>
+
+    <label for="habitat">Habitat:</label>
+    <% Pet.distinct.pluck(:habitat).each do |habitat| %>
+      <label>
+        <%= check_box_tag 'habitat[]', habitat %>
+        <%= habitat %>
+      </label>
+    <% end %>
+
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>

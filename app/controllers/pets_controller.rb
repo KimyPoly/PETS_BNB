@@ -6,6 +6,15 @@ class PetsController < ApplicationController
     @pets = Pet.all
     @pets = @pets.where(race: params[:race]) if params[:race].present?
     @pets = @pets.where(habitat: params[:habitat]) if params[:habitat].present?
+
+    @markers = @pets.geocoded.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { pet: pet }),
+        marker_html: render_to_string(partial: "marker", locals: { pet: pet })
+      }
+    end
   end
 
   def new
@@ -28,6 +37,7 @@ class PetsController < ApplicationController
   def show
     @review = Review.new
     @booking = Booking.new
+    @average_rating = calculate_average_rating(@pet)
   end
 
   def update
@@ -48,5 +58,16 @@ class PetsController < ApplicationController
 
   def pet_params
     params.require(:pet).permit(:name, :race, :habitat, :age, :species, :description, :photo_url)
+  end
+
+  def calculate_average_rating(pet)
+    if pet.reviews.present?
+      total_ratings = pet.reviews.sum(:rating)
+      total_reviews = pet.reviews.count
+      average_rating = total_ratings.to_f / total_reviews
+      return average_rating.round(1)
+    else
+      return 0
+    end
   end
 end
