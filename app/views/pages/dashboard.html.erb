@@ -28,7 +28,9 @@
         <h5 class="card-title">You have a booking on: <%= booking.pet.name %></h5>
         <p>The booking's dates are: <%= booking.start_date %> || <%= booking.end_date %></p>
         <p>The booking's status is: <%= booking.status %></p>
-        <span class="badge bg-primary rounded-pill"><%= link_to "Add a review", new_booking_review_path(booking),style: "text-decoration: none; color: white;"%></span>
+        <% if booking.status == "Accepted" %>
+          <span class="badge bg-primary rounded-pill"><%= link_to "Add a review", new_booking_review_path(booking),style: "text-decoration: none; color: white;"%></span>
+        <% end %>
       </div>
     </div>
   <% end %>
@@ -51,8 +53,10 @@
               <%= booking.status %>
             </p>
             <% if booking.status == "pending" %>
-              <%= button_to 'Accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success' %>
-              <%= button_to 'Decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger' %>
+              <div class="d-flex justify-content-between">
+                <%= button_to 'Accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success' %>
+                <%= button_to 'Decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger' %>
+              </div>
             <% end %>
           <% end %>
         </div>
