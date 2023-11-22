@@ -84,3 +84,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.card-img-container {
+  height: 200px; /* Ajustez cette valeur selon la taille souhaitée */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-img-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
