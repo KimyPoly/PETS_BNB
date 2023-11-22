@@ -4,6 +4,8 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
+    @pets = @pets.where(race: params[:race]) if params[:race].present?
+    @pets = @pets.where(habitat: params[:habitat]) if params[:habitat].present?
   end
 
   def new
