@@ -15,6 +15,10 @@ class PetsController < ApplicationController
         marker_html: render_to_string(partial: "marker", locals: { pet: pet })
       }
     end
+
+    if params[:query].present?
+      @pets = Pet.global_search(params[:query])
+    end
   end
 
   def new
