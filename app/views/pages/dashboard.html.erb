@@ -1,9 +1,9 @@
-<div class="container "></div>
+<div class="container ">
 
   <h1 class="text-center" style="color: #a98467;">Hello, <%= @user.first_name %> <%= @user.last_name %>!</h1>
 
   <% if @user.pets.any? %>
-    <h2 style="color: #a98467;">Here are all your pets:</h2>
+    <h2 style="color: #a98467;">All your pets</h2>
     <ul class="list-group m-4 p-2">
       <% @user.pets.each do |pet| %>
         <li class="list-group-item d-flex justify-content-between align-items-center p-4">
@@ -22,7 +22,7 @@
     style="width: 200px; padding: 5px; border-radius: 2px;">Add Pet</a>
   </div>
 
-<h2 class="mt-4 mb-3" style="color: #a98467;">Here are your bookings :</h2>
+<h2 class="mt-4 mb-3" style="color: #a98467;">Your bookings</h2>
 <div class="row">
   <% @bookings.each do |booking| %>
     <div class="card mb-3 me-3" style="width: 18rem;">
@@ -41,7 +41,8 @@
   <% end %>
 </div>
 
-<h2 class="mb-4 mt-3" style="color: #a98467;">Here are the bookings on your pets:</h2>
+
+<h2 class="mb-4 mt-3" style="color: #a98467;">Your pets's booking</h2>
 
 <div class="row">
   <% @pets.each do |pet| %>
@@ -73,4 +74,5 @@
       </div>
     </div>
   <% end %>
+ </div>
 </div>
