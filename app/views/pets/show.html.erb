@@ -35,9 +35,8 @@
 
   <%= simple_form_for [@pet, @booking] do |f| %>
     <div class="d-flex mb-5">
-     <div class="p-2"> <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" }, class: "d-none" } %></div>
-     <div class="p-2"> <%= f.input :end_date , as: :string, input_html: { data: { controller: "datepicker" }, class: "d-none"  } %></div>
-
+     <div class="p-2 "> <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" }, class: "d-none" }%></div>
+     <div class="p-2 "> <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker" }, class: "d-none" }%></div>
       <div class="ms-auto p-2" style="width: 40%;"
        data-controller="mini-map"
        data-mini-map-marker-value="<%= @marker.to_json %>"
@@ -47,7 +46,6 @@
     <i class="fa-solid fa-plus"></i>
     <%= f.submit "Book", class: "btn btn-ghost" %>
   <% end %>
-
 
 
  <div class="d-flex mt-2">

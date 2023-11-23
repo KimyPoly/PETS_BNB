@@ -4,11 +4,11 @@
     <br>
     <div class="filtre d-flex align-items-start" style="color: white;">
       <div data-controller="toggle" class="mt-5">
-        <button data-action="click->toggle#fire" class="btn btn-outline-warning mb-4"><i class="fa-solid fa-wand-magic-sparkles"></i>Filtre</button>
+        <button data-action="click->toggle#fire" class="btn btn-outline-warning mb-4"><i class="fa-solid fa-wand-magic-sparkles" style="color: #ff9300;"></i>Filtre</button>
         <div data-toggle-target="togglableElement" class="d-none">
           <%= form_tag pets_path, method: :get do %>
             <div class="dropdown mb-3">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="speciesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="speciesDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ff9300;">
                 Sélectionner une espèce
               </button>
               <ul class="dropdown-menu" aria-labelledby="speciesDropdown">
@@ -24,7 +24,7 @@
             </div>
             <div class="d-flex">
               <div class="dropdown mb-3">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="habitatDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="habitatDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ff9300;">
                   Sélectionner un habitat
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="habitatDropdown">
