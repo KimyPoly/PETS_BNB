@@ -24,13 +24,7 @@
       <i class="d-flex border-bottom border-black fa-solid fa-comment"><h2>No reviews yet</h2></i>
     <% end %>
     <br>
-
-
-
-
   </div>
-
-
 
 
   <%= simple_form_for [@pet, @booking] do |f| %>
@@ -44,16 +38,13 @@
        data-mini-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-    <i class="fa-solid fa-plus"></i>
     <%= f.submit "Book", class: "btn btn-ghost" %>
   <% end %>
 
 
 
  <div class="d-flex mt-2">
-      <i class="fa-solid fa-rotate-left"></i>
       <%= button_to 'Back to the List', pets_path, class: "btn btn-ghost mb-2", method: 'get' %>
-
   </div>
 
 
