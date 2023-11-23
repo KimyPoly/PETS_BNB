@@ -37,9 +37,9 @@
      <div class="p-2"> <%= f.input :end_date , as: :string, input_html: { data: { controller: "datepicker" }, class: "d-none"  } %></div>
 
       <div class="ms-auto p-2" style="width: 40%;"
-       data-controller="map"
-       data-map-markers-value="<%= @markers.to_json %>"
-       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+       data-controller="mini-map"
+       data-mini-map-marker-value="<%= @marker.to_json %>"
+       data-mini-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
     <i class="fa-solid fa-plus"></i>
