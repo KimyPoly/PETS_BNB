@@ -13,8 +13,8 @@
           <div class="shadow-lg rounded"><%= image_tag pet.photo_url, alt: "Pet Image", style: "width: 150px; height: 150px;" %></div>
           <% end %>
           <ul class="ul-pet-dashboard" >
-            <li><%= pet.name %></li>
-            <li><%= "#{pet.age} an(s)" %></li>
+            <li><%= pet.name.capitalize%></li>
+            <li><%="#{pet.age}an(s)"%></li>
             <li><%= pet.species %></li>
           </ul>
           <%= link_to pet_path(pet), method: :delete, data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } do %>
@@ -57,7 +57,7 @@
     <div class="col-md-4 mb-4">
       <div class="card">
         <div class="card-header">
-          <%= pet.name %>
+          <%= pet.name.capitalize %>
         </div>
         <div class="card-body">
           <% pet.bookings.each do |booking| %>
