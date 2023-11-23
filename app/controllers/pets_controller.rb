@@ -4,7 +4,7 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
-    @pets = @pets.where(race: params[:race]) if params[:race].present?
+    @pets = @pets.where(species: params[:species]) if params[:species].present?
     @pets = @pets.where(habitat: params[:habitat]) if params[:habitat].present?
 
     @markers = @pets.geocoded.map do |pet|
@@ -39,14 +39,13 @@ class PetsController < ApplicationController
     @booking = Booking.new
     @average_rating = calculate_average_rating(@pet)
 
-    @marker =
-      {
+    @pet.geocode
+    @marker = [{
         lat: @pet.latitude,
         lng: @pet.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: { pet: @pet }),
         marker_html: render_to_string(partial: "marker", locals: { pet: @pet })
-      }
-
+      }]
   end
 
   def update
