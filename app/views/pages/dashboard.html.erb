@@ -1,23 +1,30 @@
 <div class="container "></div>
 
-  <h1 class="text-center" style="color: #a98467;">Hello, <%= @user.first_name %> <%= @user.last_name %>!</h1>
-
+  <h1 class="text-center" style="color: #a98467;">Hello, <%= @user.first_name %> <%= @user.last_name %> !</h1>
   <% if @user.pets.any? %>
     <h2 style="color: #a98467;">Here are all your pets:</h2>
-    <ul class="list-group m-4 p-2">
+    <div class="d-flex justify-content-center">
+    <ul class="list-group m-4 p- d-flex justify-content-center;" style="width: 600px;">
       <% @user.pets.each do |pet| %>
-        <li class="list-group-item d-flex justify-content-between align-items-center p-4">
+        <li class="list-group-item d-flex justify-content-start align-items-center p-4;"
+            data-controller="trash-animation">
           <%= link_to pet_path(pet), style: "text-decoration: none;" do %>
-          <div class="shadow-lg p-3 bg-body-tertiary rounded"><%= image_tag pet.photo_url, alt: "Pet Image", style: "width: 200px; height: 100px;" %></div>
+          <div class="shadow-lg rounded"><%= image_tag pet.photo_url, alt: "Pet Image", style: "width: 150px; height: 150px;" %></div>
           <% end %>
+          <ul class="ul-pet-dashboard" >
+            <li><%= pet.name %></li>
+            <li><%= "#{pet.age} an(s)" %></li>
+            <li><%= pet.species %></li>
+          </ul>
           <%= link_to pet_path(pet), method: :delete, data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } do %>
-            <span class="badge custom-btn rounded-pill" style="padding: 10px;">Delete</span>
+            <span style="margin-left: 300px"><i data-action="mouseover->trash-animation#trashHover mouseout->trash-animation#trashRemove" class="fa-solid fa-trash" style="color: #9197a1;"></i></span>
           <% end %>
         </li>
       <% end %>
-    </ul>
+     </ul>
+    </div>
   <% end %>
- <div class="d-flex justify-content-center ">
+ <div class="d-flex justify-content-center">
     <a id="pet_button" class="d-flex justify-content-center custom-btn" href="/pets/new.19"
     style="width: 200px; padding: 5px; border-radius: 2px;">Add Pet</a>
   </div>
