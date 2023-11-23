@@ -11,16 +11,16 @@
           <div class="shadow-lg p-3 bg-body-tertiary rounded"><%= image_tag pet.photo_url, alt: "Pet Image", style: "width: 200px; height: 100px;" %></div>
           <% end %>
           <%= link_to pet_path(pet), method: :delete, data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } do %>
-            <span class="badge custom-btn rounded-pill">Delete</span>
+            <span class="badge custom-btn rounded-pill" style="padding: 10px;">Delete</span>
           <% end %>
         </li>
       <% end %>
     </ul>
   <% end %>
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <button class="btn custom-btn" type="button"><%= link_to "Add a pet",  new_pet_path(@user), id: "pet_button"  %></button>
+ <div class="d-flex justify-content-center ">
+    <a id="pet_button" class="d-flex justify-content-center custom-btn" href="/pets/new.19"
+    style="width: 200px; padding: 5px; border-radius: 2px;">Add Pet</a>
   </div>
-
 
 <h2 class="mt-4" style="color: #a98467;">Here are your bookings :</h2>
 <div class="row">

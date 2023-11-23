@@ -106,5 +106,10 @@
 
 .custom-btn {
   background-color: #588157; /* Nouvelle couleur d'arrière-plan */
-  color: #ffffff; 
+  color: #ffffff;
+}
+
+.custom-btn:hover {
+  background-color: #2e562e; /* Nouvelle couleur d'arrière-plan */
+  color: #ffffff;
 }
