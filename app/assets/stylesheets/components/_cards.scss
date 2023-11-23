@@ -2,7 +2,7 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 17px;
   border: none;
 }
 
@@ -15,7 +15,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   width: 18rem;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   background-color: #e3d5ca;
  }
 
@@ -104,12 +104,14 @@
   color: #588157
 }
 
-.custom-btn {
-  background-color: #588157; /* Nouvelle couleur d'arrière-plan */
-  color: #ffffff;
-}
+.window {
+  background-color: #e3d5ca ;
 
-.custom-btn:hover {
-  background-color: #2e562e; /* Nouvelle couleur d'arrière-plan */
-  color: #ffffff;
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  a :hover {
+    color: white;
+  }
 }

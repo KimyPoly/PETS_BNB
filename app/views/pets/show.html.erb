@@ -1,5 +1,5 @@
 <div class="container p-0">
-  <div class="card-product rounded-4" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(<%=@pet.photo_url%>);">
+  <div class="card-product rounded-4" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(<%=@pet.photo_url%>); object-fit: cover;">
   <img src="<%=@pet.photo_url%>" alt="">
   <div class="card-product-infos m-3">
     <h1 class="border-bottom"><%=@pet.name.upcase%></h1>
