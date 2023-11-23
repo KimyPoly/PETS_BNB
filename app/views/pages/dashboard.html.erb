@@ -22,19 +22,16 @@
     style="width: 200px; padding: 5px; border-radius: 2px;">Add Pet</a>
   </div>
 
-<h2 class="mt-4" style="color: #a98467;">Here are your bookings :</h2>
+<h2 class="mt-4 mb-3" style="color: #a98467;">Here are your bookings :</h2>
 <div class="row">
   <% @bookings.each do |booking| %>
     <div class="card mb-3 me-3" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">You have a booking on: <%= booking.pet.name %></h5>
 
-        <p style="color: #a98467;">The booking's dates are: <%= booking.start_date %> || <%= booking.end_date %></p>
-        <p style="color: #a98467;">The booking's status is: <%= booking.status %></p>
-
-
-        <p>The booking's dates are: <%= booking.start_date %> || <%= booking.end_date %></p>
-        <p>The booking's status is: <%= booking.status %></p>
+        <p style="color: #a98467;">Start date: <%= booking.start_date %></p>
+        <p style="color: #a98467;">End date: <%= booking.end_date %></p>
+        <p style="color: #a98467;">Statut: <%= booking.status %></p>
         <% if booking.status == "Accepted" %>
           <span class="badge custom-btn rounded-pill"><%= link_to "Add a review", new_booking_review_path(booking),style: "text-decoration: none; color: white;"%></span>
         <% end %>
@@ -62,8 +59,13 @@
             </p>
             <% if booking.status == "pending" %>
               <div class="d-flex justify-content-between">
-                <%= button_to 'Accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success' %>
-                <%= button_to 'Decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger' %>
+
+                <%= button_to accept_booking_path(booking), method: :patch, class: 'btn btn-success rounded-circle' do %>
+                  <i class="fa-solid fa-check"></i>
+                <% end %>
+                <%= button_to decline_booking_path(booking), method: :patch, class: 'btn btn-danger rounded-circle' do %>
+                  <i class="fa-solid fa-x"></i>
+                <% end %>
               </div>
             <% end %>
           <% end %>
