@@ -1,5 +1,5 @@
 <div class="container p-0">
-  <div class="card-product rounded-4" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(<%=@pet.photo_url%>);">
+  <div class="card-product rounded-4" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(<%=@pet.photo_url%>); object-fit: cover;">
   <img src="<%=@pet.photo_url%>" alt="">
   <div class="card-product-infos m-3">
     <h1 class="border-bottom"><%=@pet.name.upcase%></h1>
@@ -24,13 +24,7 @@
       <i class="d-flex border-bottom border-black fa-solid fa-comment"><h2>No reviews yet</h2></i>
     <% end %>
     <br>
-
-
-
-
   </div>
-
-
 
 
   <%= simple_form_for [@pet, @booking] do |f| %>
@@ -43,15 +37,12 @@
        data-mini-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-    <i class="fa-solid fa-plus"></i>
     <%= f.submit "Book", class: "btn btn-ghost" %>
   <% end %>
 
 
  <div class="d-flex mt-2">
-      <i class="fa-solid fa-rotate-left"></i>
       <%= button_to 'Back to the List', pets_path, class: "btn btn-ghost mb-2", method: 'get' %>
-
   </div>
 
 

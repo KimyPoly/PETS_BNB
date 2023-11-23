@@ -15,6 +15,10 @@ class PetsController < ApplicationController
         marker_html: render_to_string(partial: "marker", locals: { pet: pet })
       }
     end
+
+    if params[:query].present?
+      @pets = Pet.global_search(params[:query])
+    end
   end
 
   def new
@@ -65,7 +69,7 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name, :race, :habitat, :age, :species, :description, :photo_url)
+    params.require(:pet).permit(:name, :race, :habitat, :age, :address, :species, :description, :photo_url)
   end
 
   def calculate_average_rating(pet)

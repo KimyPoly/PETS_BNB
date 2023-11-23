@@ -1,37 +1,45 @@
-<div class="container "></div>
+<div class="container ">
 
-  <h1 class="text-center" style="color: #a98467;">Hello, <%= @user.first_name %> <%= @user.last_name %>!</h1>
-
+  <h1 class="text-center" style="color: #a98467;">Hello, <%= @user.first_name %> <%= @user.last_name %> !</h1>
   <% if @user.pets.any? %>
-    <h2 style="color: #a98467;">Here are all your pets:</h2>
+    <div class="d-flex justify-content-center">
+    <ul class="list-group m-4 p- d-flex justify-content-center;" style="width: 600px;">
+    <h2 style="color: #a98467;">All your pets</h2>
     <ul class="list-group m-4 p-2">
       <% @user.pets.each do |pet| %>
-        <li class="list-group-item d-flex justify-content-between align-items-center p-4">
+        <li class="list-group-item d-flex justify-content-start align-items-center p-4;"
+            data-controller="trash-animation">
           <%= link_to pet_path(pet), style: "text-decoration: none;" do %>
-          <div class="shadow-lg p-3 bg-body-tertiary rounded"><%= image_tag pet.photo_url, alt: "Pet Image", style: "width: 200px; height: 100px;" %></div>
+          <div class="shadow-lg rounded"><%= image_tag pet.photo_url, alt: "Pet Image", style: "width: 150px; height: 150px;" %></div>
           <% end %>
+          <ul class="ul-pet-dashboard" >
+            <li><%= pet.name %></li>
+            <li><%= "#{pet.age} an(s)" %></li>
+            <li><%= pet.species %></li>
+          </ul>
           <%= link_to pet_path(pet), method: :delete, data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } do %>
-            <span class="badge custom-btn rounded-pill" style="padding: 10px;">Delete</span>
+            <span style="margin-left: 300px"><i data-action="mouseover->trash-animation#trashHover mouseout->trash-animation#trashRemove" class="fa-solid fa-trash" style="color: #9197a1;"></i></span>
           <% end %>
         </li>
       <% end %>
-    </ul>
+     </ul>
+    </div>
   <% end %>
- <div class="d-flex justify-content-center ">
+ <div class="d-flex justify-content-center">
     <a id="pet_button" class="d-flex justify-content-center custom-btn" href="/pets/new.19"
     style="width: 200px; padding: 5px; border-radius: 2px;">Add Pet</a>
   </div>
 
-<h2 class="mt-4 mb-3" style="color: #a98467;">Here are your bookings :</h2>
+<h2 class="mt-4 mb-3" style="color: #a98467;">Your bookings</h2>
 <div class="row">
   <% @bookings.each do |booking| %>
     <div class="card mb-3 me-3" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title">You have a booking on: <%= booking.pet.name %></h5>
+        <h5 class="card-title">You have a booking on <%= booking.pet.name %></h5>
 
-        <p style="color: #a98467;">Start date: <%= booking.start_date %></p>
-        <p style="color: #a98467;">End date: <%= booking.end_date %></p>
-        <p style="color: #a98467;">Statut: <%= booking.status %></p>
+        <p style="color: #a98467;"><i class="fa-solid fa-calendar-days"></i> <%= booking.start_date %></p>
+        <p style="color: #a98467;"><i class="fa-solid fa-calendar-days"></i> <%= booking.end_date %></p>
+        <p style="color: #a98467;"><i class="fa-solid fa-bars-progress"></i> <%= booking.status.capitalize %></p>
         <% if booking.status == "Accepted" %>
           <span class="badge custom-btn rounded-pill"><%= link_to "Add a review", new_booking_review_path(booking),style: "text-decoration: none; color: white;"%></span>
         <% end %>
@@ -41,7 +49,8 @@
   <% end %>
 </div>
 
-<h2 class="mb-4 mt-3" style="color: #a98467;">Here are the bookings on your pets:</h2>
+
+<h2 class="mb-4 mt-3" style="color: #a98467;">Your pets's booking</h2>
 
 <div class="row">
   <% @pets.each do |pet| %>
@@ -73,4 +82,5 @@
       </div>
     </div>
   <% end %>
+ </div>
 </div>

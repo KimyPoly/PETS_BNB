@@ -12,4 +12,10 @@ class Pet < ApplicationRecord
   validates :photo_url, presence: true
   validates :habitat, inclusion: { in: ["Jungle", "Forêt", "Desert", "Ocean", "Savane"] }
 
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :species ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
