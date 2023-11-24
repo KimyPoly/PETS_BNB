@@ -14,8 +14,6 @@
 
   <body>
   <%= render "shared/navbar" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <% if controller_name == 'pets' && action_name == 'index'%>
       <%= render "shared/banner" %>
     <% end %>
