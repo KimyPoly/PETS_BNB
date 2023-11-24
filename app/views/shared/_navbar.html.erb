@@ -15,16 +15,18 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <div class="row justify-content-center m-2">
-            <div class="">
+            <li class="nav-item">
               <%= form_with url: root_path, method: :get, class: "d-flex p-2" do %>
-                  <%= text_field_tag :query,
+                <%= text_field_tag :query,
                       params[:query],
                       class: "form-control rounded-3 ms-5",
-                      placeholder: ""
-                  %>
+
+                     <% placeholder: "Pet"
+                %>
+
                 <%= submit_tag "Search", name: "", class: "btn btn-default"  %>
               <% end %>
-            </div>
+            </li>
           </div>
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>

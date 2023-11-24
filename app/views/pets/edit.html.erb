@@ -2,9 +2,10 @@
   <%= f.input :name %>
   <%= f.input :age %>
   <%= f.input :race%>
+  <%= f.input :address%>
   <%= f.input :species %>
   <%= f.input :description%>
-  <%= f.input :photo_urlr%>
-  <%= f.input :habitat , collection: ["🌴 J", "🌳 F", "🏜️ D", "🌊 O", "🦒 S"]   %>
+  <%= f.input :photo_url%>
+  <%= f.input :habitat , collection: ["Jungle", "Forêt", "Desert", "Ocean", "Savane"]   %>
   <%= f.submit %>
 <% end %>

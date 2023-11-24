@@ -1,8 +1,9 @@
 
 
 <div class="window">
-  <h2><%= link_to pet.name, pet_path(pet.id) %></h2>
-  <p><%= pet.species %></p>
+  <%= link_to pet_path(pet.id) do %>
+  <h2><%= pet.name %></h2>
   <p><%= pet.address %></p>
-
+  <p><%= pet.species %></p>
+  <% end %>
 </div>

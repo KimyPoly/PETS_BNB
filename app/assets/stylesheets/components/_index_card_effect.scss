@@ -1,0 +1,75 @@
+.index-card {
+  max-width: 18rem;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #e3d5ca;
+  transition: all 150ms ease-in-out;
+  margin-bottom: 20px;
+}
+
+.index-card:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  opacity: 1;
+}
+
+.index-card-img-container {
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.index-card-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.index-card-body {
+  padding: 1rem;
+}
+
+.index-card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.index-card-text {
+  max-height: 80px;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+.index-btn {
+  background-color: #588157;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 150ms ease-in-out;
+}
+
+.index-btn:hover {
+  background-color: #466d5f;
+}
+
+/* Include this style for the link color in the button */
+#color {
+  color: white;
+  text-decoration: none;
+}
+
+#color:hover {
+  color: white;
+}
+
+/* The rest of your styles remain unchanged */
