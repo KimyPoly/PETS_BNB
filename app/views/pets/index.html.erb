@@ -1,5 +1,41 @@
 <div class="container">
   <div class="row">
+
+
+
+    <div class="d-flex justify-content-center p-2 border border-2 mt-5 mb-5 rounded-5">
+     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="width: 300px; height: 300px;">
+      <div class="carousel-inner">
+        <% @pets.each_with_index do |pet, index| %>
+        <div class="carousel-item <%= "active" if index == 0 %>" data-bs-interval="2000">
+          <%= image_tag pet.photo_url, alt: "Pet Image", style: "width: 300px; height: 300px; border-radius: 20px" %>
+          <h4 class="p-1"><strong><%=link_to "#{pet.name}", pet_path(pet), id:"carousel" %></strong></h4>
+        </div>
+        <% end %>
+
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+     </div>
+
+      <div class="mb-5 rounded-5" style="width: 60%; height: 300px; margin-left: auto;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+   </div>
+
+   <div class="col-12 text-center">
+      <h1 class="mb-5 mt-4 text-color border-top border-bottom border-4 p-2 mt-0" style=" font-size: 70px; font-weight: bold; ">Discover all our pets </h1>
+
     <div class="col-12 text-center">
       <br>
       <h1 class="mb-5 mt-4 text-color border-top border-bottom p-2" style="font-size: 50px;"><strong>Discover all our pets</strong></h1>
