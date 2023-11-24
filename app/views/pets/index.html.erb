@@ -1,88 +1,114 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 text-center">
-      <br>
-      <h1 class="mb-5 mt-4 text-color border-top border-bottom p-2" style="font-size: 50px;"><strong>Discover all our pets</strong></h1>
-    </div>
 
-    <div class="mb-5 rounded-5" id="mapContainer" style="width: 98%; height: 300px; position: relative;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      <!-- Contenu de votre carte ou initialisation de la carte ici -->
 
-      <!-- Script pour ajouter l'élément représentant l'animal à l'intérieur de la carte -->
-      <script>
-        const mapContainer = document.getElementById('mapContainer');
-        const mapWidth = mapContainer.clientWidth - 50; // Largeur de la carte moins la largeur de l'élément animal
-        const mapHeight = mapContainer.clientHeight - 50; // Hauteur de la carte moins la hauteur de l'élément animal
 
-        const animalMarker = document.createElement('div');
-        animalMarker.id = 'animal';
-        animalMarker.style.position = 'absolute';
-        animalMarker.style.top = '70px'; // Ajustez ces valeurs pour positionner l'élément animal sur la carte
-        animalMarker.style.left = '40px'; // Ajustez ces valeurs pour positionner l'élément animal sur la carte
-        animalMarker.style.fontSize = '50px'; // Ajustez la taille du dauphin
-
-        // Utilisation d'un emoji pour représenter l'animal (remplacez le contenu par l'emoji souhaité)
-        animalMarker.textContent = '🐬'; // Remplacez cela par l'emoji de votre choix
-
-        mapContainer.appendChild(animalMarker);
-
-        // Variable pour stocker la direction de déplacement actuelle
-        let currentDirection = Math.random() < 0.5 ? 'horizontal' : 'vertical';
-
-        // Fonction pour déplacer l'animal soit horizontalement soit verticalement
-        function moveAnimal() {
-          const step = 5; // Pas de déplacement
-
-          // Obtenir les positions actuelles de l'animal
-          let currentTop = parseInt(animalMarker.style.top) || 0;
-          let currentLeft = parseInt(animalMarker.style.left) || 0;
-
-          if (currentDirection === 'horizontal') {
-            // Déplacement horizontal
-            currentLeft += step;
-
-            // Changer de direction si atteint la fin horizontale de la carte
-            if (currentLeft >= mapWidth) {
-              currentLeft = mapWidth;
-              currentDirection = 'vertical';
-            }
-          } else {
-            // Déplacement vertical
-            currentTop += step;
-
-            // Changer de direction si atteint la fin verticale de la carte
-            if (currentTop >= mapHeight) {
-              currentTop = mapHeight;
-              currentDirection = 'horizontal';
-            }
-          }
-
-          // Appliquer les nouvelles positions à l'animal
-          animalMarker.style.top = currentTop + 'px';
-          animalMarker.style.left = currentLeft + 'px';
-        }
-
-        // Déclencher le mouvement toutes les 100 millisecondes
-        setInterval(moveAnimal, 100);
-      </script>
-    </div>
-
-    <% @pets.each do |pet| %>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-        <div class="index-card">
-          <div class="index-card-img-container">
-            <img src="<%= pet.photo_url %>" class="index-card-img-top" alt="Pet Image">
+    <div class="d-flex justify-content-center p-2 border border-2 mt-5 mb-5 rounded-5">
+      <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="width: 300px; height: 300px;">
+        <div class="carousel-inner">
+          <% @pets.each_with_index do |pet, index| %>
+          <div class="carousel-item <%= "active" if index == 0 %>" data-bs-interval="2000">
+            <%= image_tag pet.photo_url, alt: "Pet Image", style: "width: 300px; height: 300px; border-radius: 20px" %>
+            <h4 class="p-1"><strong><%=link_to "#{pet.name}", pet_path(pet), id:"carousel" %></strong></h4>
           </div>
-          <div class="index-card-body">
-            <h4 class="index-card-title"><%= pet.name %></h4>
-            <p class="index-card-text text-truncate"><%= pet.description %></p>
-            <button class="btn custom-btn"><%= link_to "Book", pet_path(pet), id: "color" %></button>
-          </div>
+          <% end %>
+
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
-    <% end %>
+
+      <div class="mb-5 rounded-5" id="mapContainer" style="width: 60%; height: 300px; margin-left: auto;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+        <script>
+          const mapContainer = document.getElementById('mapContainer');
+          const mapWidth = mapContainer.clientWidth - 50; // Largeur de la carte moins la largeur de l'élément animal
+          const mapHeight = mapContainer.clientHeight - 50; // Hauteur de la carte moins la hauteur de l'élément animal
+
+          const animalMarker = document.createElement('div');
+          animalMarker.id = 'animal';
+          animalMarker.style.position = 'absolute';
+          animalMarker.style.top = '70px'; // Ajustez ces valeurs pour positionner l'élément animal sur la carte
+          animalMarker.style.left = '40px'; // Ajustez ces valeurs pour positionner l'élément animal sur la carte
+          animalMarker.style.fontSize = '50px'; // Ajustez la taille du dauphin
+
+          // Utilisation d'un emoji pour représenter l'animal (remplacez le contenu par l'emoji souhaité)
+          animalMarker.textContent = '🐬'; // Remplacez cela par l'emoji de votre choix
+
+          mapContainer.appendChild(animalMarker);
+
+          // Variable pour stocker la direction de déplacement actuelle
+          let currentDirection = Math.random() < 0.5 ? 'horizontal' : 'vertical';
+
+          // Fonction pour déplacer l'animal soit horizontalement soit verticalement
+          function moveAnimal() {
+            const step = 5; // Pas de déplacement
+
+            // Obtenir les positions actuelles de l'animal
+            let currentTop = parseInt(animalMarker.style.top) || 0;
+            let currentLeft = parseInt(animalMarker.style.left) || 0;
+
+            if (currentDirection === 'horizontal') {
+              // Déplacement horizontal
+              currentLeft += step;
+
+              // Changer de direction si atteint la fin horizontale de la carte
+              if (currentLeft >= mapWidth) {
+                currentLeft = mapWidth;
+                currentDirection = 'vertical';
+              }
+            } else {
+              // Déplacement vertical
+              currentTop += step;
+
+              // Changer de direction si atteint la fin verticale de la carte
+              if (currentTop >= mapHeight) {
+                currentTop = mapHeight;
+                currentDirection = 'horizontal';
+              }
+            }
+
+            // Appliquer les nouvelles positions à l'animal
+            animalMarker.style.top = currentTop + 'px';
+            animalMarker.style.left = currentLeft + 'px';
+          }
+
+          // Déclencher le mouvement toutes les 100 millisecondes
+          setInterval(moveAnimal, 100);
+        </script>
+      </div>
+    </div>
+
+    <div class="col-12 text-center">
+        <h1 class="mb-5 mt-4 text-color border-top border-bottom border-4 p-2 mt-0" style=" font-size: 70px; font-weight: bold; ">Discover all our pets </h1>
+     </div>
+
+
+        <% @pets.each do |pet| %>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+            <div class="index-card">
+              <div class="index-card-img-container">
+                <img src="<%= pet.photo_url %>" class="index-card-img-top" alt="Pet Image">
+              </div>
+              <div class="index-card-body">
+                <h4 class="index-card-title"><%= pet.name %></h4>
+                <p class="index-card-text text-truncate"><%= pet.description %></p>
+                <button class="btn custom-btn"><%= link_to "Book", pet_path(pet), id: "color" %></button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    </div>
   </div>
 </div>

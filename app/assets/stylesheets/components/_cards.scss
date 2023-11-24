@@ -75,10 +75,7 @@
   height: auto;
 }
 
-.card-text {
-  max-height: 80px;
-  overflow: hidden;
-}
+
 
 .text-truncate {
   white-space: nowrap;
@@ -105,13 +102,32 @@
 }
 
 .window {
-  background-color: #e3d5ca ;
+  background-color: #e3d5ca;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  padding: 0;
+
+  h1, p {
+    text-align: left;
+  }
+
+  p {
+    margin: 0 10px 0 10px;
+  }
+
+  h1 {
+    font-weight: bold;
+  }
 
   a{
     text-decoration: none;
-    color: black;
+    color: #588157;
   }
   a :hover {
     color: white;
   }
+}
+
+#carousel {
+  text-decoration: none;
+  color: #588157
 }
