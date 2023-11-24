@@ -18,7 +18,7 @@
             <li><%= pet.species %></li>
           </ul>
           <%= link_to edit_pet_path(pet) do %>
-            <i class="fa-solid fa-pen"></i>
+            <i class="fa-solid fa-pen me-2"></i>
           <% end %>
           <%= link_to pet_path(pet), method: :delete, data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } do %>
             <span class = "d-flex justify-content-end" ><i data-action="mouseover->trash-animation#trashHover mouseout->trash-animation#trashRemove" class="fa-solid fa-trash" style="color: #9197a1;"></i></span>
