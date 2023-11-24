@@ -1,7 +1,18 @@
-
-<%= simple_form_for [@booking, @review] do |f| %>
-    <%= f.input :description, placeholder: 'Laissez un commentaire...' %>
-    <%= f.input :rating, collection: Review::AUTHORIZED_RATINGS %>
-    <%= f.submit class: 'btn btn-flat' %>
-<% end %>
+<div class="container mt-4">
+  <div class="card mx-auto" style="min-width: 800px; height: 500px;">
+    <div class="card-body">
+      <%= simple_form_for [@booking, @review] do |f| %>
+        <%= f.input :description, placeholder: 'Laissez un commentaire...', class: 'form-control' %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :rating, collection: Review::AUTHORIZED_RATINGS, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="d-grid">
+          <%= f.submit "Submit Review", class: 'btn btn-flat btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
