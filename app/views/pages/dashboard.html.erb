@@ -10,7 +10,7 @@
         <li class="list-group-item d-flex justify-content-start align-items-center p-4 ;" style ="margin: 30px; border: solid 0.3px grey;"
             data-controller="trash-animation">
           <%= link_to pet_path(pet), style: "text-decoration: none;" do %>
-          <div class="shadow-lg rounded"><%= image_tag pet.photo_url, alt: "Pet Image", style: "width: 150px; height: 150px;" %></div>
+          <div class="shadow-lg rounded"><%= image_tag pet.photo_url, alt: "Pet Image", style: "width: 150px; height: 150px; object-fit: cover" %></div>
           <% end %>
           <ul class="ul-pet-dashboard" style="width: auto; margin: 15px; flex-wrap: wrap;" >
             <li><%= pet.name.capitalize%></li>
