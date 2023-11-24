@@ -1,20 +1,26 @@
-<div class="container mt-5">
-  <div class="card mx-auto" style="max-width: 405px;">
-    <div class="card-body">
 
-    <%= simple_form_for(@pet) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :age %>
-      <%= f.input :species %>
-      <%= f.input :race%>
-      <%= f.input :address%>
-      <%= f.input :description%>
-      <%= f.input :photo_url, as: :url %>
-      <%= f.input :habitat, collection: ["Jungle", "Forêt", "Desert", "Ocean", "Savane"] %>
-      <div class="d-grid">
-          <%= f.button :submit, "Create Pet", class: 'btn btn-flat'%>
-      </div>
-    <% end %>
-    </div>
-  </div>
+<div class="container mt-4">
+  <div class="card mx-auto" style="min-width: 800px;"> <!-- Augmentation de la largeur -->
+    <div class="card-body">
+      <%= simple_form_for(@pet) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :age %>
+                <div class="row"> <!-- Création d'une ligne Bootstrap -->
+          <div class="col-md-6"> <!-- Utilisation de la moitié de la largeur pour race -->
+            <%= f.input :species %>
+          </div>
+          <div class="col-md-6"> <!-- Utilisation de l'autre moitié de la largeur pour species -->
+            <%= f.input :race %>
+          </div>
+        </div>
+        <%= f.input :address %>
+        <%= f.input :description %>
+        <%= f.input :photo_url, as: :url %>
+        <%= f.input :habitat, collection: ["Jungle", "Forêt", "Desert", "Ocean", "Savane"] %>
+        <div class="d-grid">
+          <%= f.button :submit, "Create Pet", class: 'btn btn-flat' %>
+        </div>
+      <% end %>
+</div>
+</div>
 </div>
