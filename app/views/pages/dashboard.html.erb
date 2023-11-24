@@ -14,7 +14,7 @@
           <% end %>
           <ul class="ul-pet-dashboard" style="width: auto; margin: 15px; flex-wrap: wrap;" >
             <li><%= pet.name.capitalize%></li>
-            <li style="width: 100px"><%="#{pet.age} an(s)"%></li>
+            <li style="width: 100px"><%="#{pet.age} year(s) old"%></li>
             <li><%= pet.species %></li>
           </ul>
           <%= link_to edit_pet_path(pet) do %>
