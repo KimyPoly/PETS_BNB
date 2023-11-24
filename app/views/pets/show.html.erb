@@ -28,7 +28,7 @@
 
 
   <%= simple_form_for [@pet, @booking] do |f| %>
-    <div class="d-flex m-5 p-5" data-controller='datepicker'>
+    <div class="d-flex mb-3 me-5" data-controller='datepicker'>
       <div class="p-2 "> <%= f.input :start_date, as: :string, input_html: {
                                                                 data: {
                                                                   datepicker_target: "startDate"

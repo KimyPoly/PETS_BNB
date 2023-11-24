@@ -2,10 +2,10 @@
 
   <h1 class="text-center" style="color: #a98467;">Hello, <%= @user.first_name %> <%= @user.last_name %> !</h1>
   <% if @user.pets.any? %>
-    <div class="d-flex justify-content-center">
-    <ul class="list-group m-4 p-4">
-    <h2 style="color: #a98467;">All your pets</h2>
-    <ul class="list-group m-4 d-flex flex-row">
+    <div class="d-flex flex-column justify-content-center">
+    <h2 style="color: #a98467;" class='mb-0 mt-5'>All your pets</h2>
+    <ul class="list-group" id='petscroll'>
+    <ul class="list-group d-flex flex-row">
       <% @user.pets.each do |pet| %>
         <li class="list-group-item d-flex justify-content-start align-items-center p-4 ;" style ="margin: 30px; border: solid 0.3px grey;"
             data-controller="trash-animation">
