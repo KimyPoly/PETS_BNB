@@ -96,7 +96,7 @@ Pet.create!(
   age: rand(1..12),
   habitat: 'Jungle',
   address: "24 Rte de Mantes, 78930 Breuil-Bois-Robert",
-  description: 'Milou est un chien, personnage indispensable de la bande dessinée Les Aventures de Tintin.',
+  description: 'Snowy is a dog, an essential character in the comic strip The Adventures of Tintin.',
   photo_url: 'https://static1.purepeople.com/articles/1/90/27/1/@/731637-milou-dans-les-aventures-de-tintin-le-580x0-3.jpg'
 )
 
@@ -108,7 +108,7 @@ Pet.create!(
   age: rand(1..12),
   habitat: 'Jungle',
   address: "502 Rte de Vignarnaud, 82000 Montauban",
-  description: "Bagheera est caractérisée pour être l'animal le plus sage et le plus respecté de la jungle. Altruiste et soucieuse, elle veille à la sécurité d'autrui avant de s'occuper d'elle-même comme avec Mowgli son protégé.",
+  description: "Bagheera is characterized to be the wisest and most respected animal in the jungle. Altruistic and concerned, she ensures the safety of others before taking care of herself as with Mowgli, her protégé.",
   photo_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7RFweyoJG_K9nAs2A4nYtNIAKdQQ0QUgcIw&usqp=CAU'
 )
 
