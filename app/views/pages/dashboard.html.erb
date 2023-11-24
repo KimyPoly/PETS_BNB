@@ -3,25 +3,25 @@
   <h1 class="text-center" style="color: #a98467;">Hello, <%= @user.first_name %> <%= @user.last_name %> !</h1>
   <% if @user.pets.any? %>
     <div class="d-flex justify-content-center">
-    <ul class="list-group m-4 p- d-flex justify-content-center;" style="width: 600px;">
+    <ul class="list-group m-4 p-4">
     <h2 style="color: #a98467;">All your pets</h2>
-    <ul class="list-group m-4 p-2">
+    <ul class="list-group m-4 d-flex flex-row">
       <% @user.pets.each do |pet| %>
-        <li class="list-group-item d-flex justify-content-start align-items-center p-4;"
+        <li class="list-group-item d-flex justify-content-start align-items-center p-4 ;" style ="margin: 30px; border: solid 0.3px grey;"
             data-controller="trash-animation">
           <%= link_to pet_path(pet), style: "text-decoration: none;" do %>
           <div class="shadow-lg rounded"><%= image_tag pet.photo_url, alt: "Pet Image", style: "width: 150px; height: 150px;" %></div>
           <% end %>
-          <ul class="ul-pet-dashboard" >
+          <ul class="ul-pet-dashboard" style="width: auto; margin: 15px; flex-wrap: wrap;" >
             <li><%= pet.name.capitalize%></li>
-            <li><%="#{pet.age}an(s)"%></li>
+            <li style="width: 100px"><%="#{pet.age} an(s)"%></li>
             <li><%= pet.species %></li>
           </ul>
           <%= link_to edit_pet_path(pet) do %>
             <i class="fa-solid fa-pen"></i>
           <% end %>
           <%= link_to pet_path(pet), method: :delete, data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } do %>
-            <span style="margin-left: 240px"><i data-action="mouseover->trash-animation#trashHover mouseout->trash-animation#trashRemove" class="fa-solid fa-trash" style="color: #9197a1;"></i></span>
+            <span class = "d-flex justify-content-end" ><i data-action="mouseover->trash-animation#trashHover mouseout->trash-animation#trashRemove" class="fa-solid fa-trash" style="color: #9197a1;"></i></span>
           <% end %>
         </li>
       <% end %>
