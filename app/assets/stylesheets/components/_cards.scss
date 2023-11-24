@@ -75,10 +75,7 @@
   height: auto;
 }
 
-.card-text {
-  max-height: 80px;
-  overflow: hidden;
-}
+
 
 .text-truncate {
   white-space: nowrap;
@@ -128,4 +125,9 @@
   a :hover {
     color: white;
   }
+}
+
+#carousel {
+  text-decoration: none;
+  color: #588157
 }

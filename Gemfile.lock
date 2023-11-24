@@ -254,6 +254,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    slick_rails (1.5.9)
+      railties (>= 3.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -316,6 +318,7 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   simple_form!
+  slick_rails
   sprockets-rails
   stimulus-rails
   turbo-rails
