@@ -5,3 +5,42 @@
 .ul-pet-dashboard {
   list-style-type: disc;
 }
+
+
+// ---------
+
+/* Styles for the button */
+.decline-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #cc0000;
+  border: none;
+  border-radius: 100%; /* Make it round */
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect for the button */
+.decline-button:hover {
+  background-color: #a31a1a;
+}
+
+// ------ Accept
+.accept-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #588157; /* Green color */
+  border: none;
+  border-radius: 100%; /* Make it round */
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect for the button */
+.accept-button:hover {
+  background-color: #126e0d; /* Lighter green on hover */
+}
