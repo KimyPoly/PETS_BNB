@@ -27,12 +27,13 @@
   </div>
 
 
-  <%= simple_form_for [@pet, @booking] do |f| %>
+  <%= simple_form_for [@pet, @booking], html: { data: { controller: 'alert',action: 'turbo:submit-end->alert#addAlertSuccess' } } do |f| %>
     <div class="d-flex mb-3 me-5" data-controller='datepicker'>
       <div class="p-2 "> <%= f.input :start_date, as: :string, input_html: {
                                                                 data: {
                                                                   datepicker_target: "startDate"
                                                                 }, class: "d-none"
+
                                                               },
                                                               label: false %></div>
       <div class="p-2 "> <%= f.input :end_date, as: :string, input_html: {
@@ -58,3 +59,5 @@
 
 
 </div>
+
+<a href="/"></a>

@@ -1,11 +1,25 @@
-<%= simple_form_for(@pet) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :age %>
-  <%= f.input :race%>
-  <%= f.input :address%>
-  <%= f.input :species %>
-  <%= f.input :description%>
-  <%= f.input :photo_url%>
-  <%= f.input :habitat , collection: ["Jungle", "Forêt", "Desert", "Ocean", "Savane"]   %>
-  <%= f.submit %>
-<% end %>
+<div class="container mt-4">
+  <div class="card mx-auto" style="min-width: 800px;">
+    <div class="card-body">
+      <%= simple_form_for(@pet) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :age %>
+                <div class="row">
+          <div class="col-md-6">
+            <%= f.input :species %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :race %>
+          </div>
+        </div>
+        <%= f.input :address %>
+        <%= f.input :description %>
+        <%= f.input :photo_url, as: :url %>
+        <%= f.input :habitat, collection: ["Jungle", "Forêt", "Desert", "Ocean", "Savane"] %>
+        <div class="d-grid">
+          <%= f.button :submit, "Update pet", class: 'btn btn-flat' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

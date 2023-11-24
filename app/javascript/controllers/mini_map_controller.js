@@ -10,9 +10,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("Hello from mini map")
-    console.log(this.markerValue)
-    console.log(this.apiKeyValue)
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({

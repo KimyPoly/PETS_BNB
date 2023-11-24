@@ -11,6 +11,7 @@ export default class extends Controller {
     flatpickr(this.startDateTarget, {
       enableTime: false,
       inline: true,
+      minDate: new Date,
       plugins: [new rangePlugin({ input: "#endDate"})]})
 
     flatpickr(this.endDateTarget, {})
