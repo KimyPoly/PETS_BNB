@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @booking.pet = @pet
     @booking.save
-    redirect_to dashboard_path
+    # redirect_to dashboard_path
   end
 
   def accept
